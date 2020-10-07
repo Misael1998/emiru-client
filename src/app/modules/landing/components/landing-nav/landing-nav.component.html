@@ -1,4 +1,8 @@
-<nav class="navbar navbar-light bg-light">
+<nav
+  class="navbar {{ navStyle }} sticky-top"
+  id="navbar"
+  (scroll)="onScroll($event)"
+>
   <span class="navbar-brand mb-0 h1">
     <a [routerLink]="['./']" class="text-decoration-none">Emiru</a>
   </span>
@@ -8,7 +12,7 @@
     <a>Recursos</a>
   </div>
   <div>
-    <a [routerLink]="['./login']">Iniciar sesión</a>
-    <a [routerLink]="['./register']">Comenzar</a>
+    <a [routerLink]="['./login']" class="btn btn-light">Iniciar sesión</a>
+    <a [routerLink]="['./register']" class="btn btn-primary">Comenzar</a>
   </div>
 </nav>

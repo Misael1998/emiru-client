@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,7 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing-nav.component.css'],
 })
 export class LandingNavComponent implements OnInit {
+  navStyle: string = 'navbar-light';
+
   constructor(router: Router) {}
 
   ngOnInit(): void {}
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(e) {
+    let element = document.getElementById('navbar');
+
+    if (window.pageYOffset > element.clientHeight) {
+      this.navStyle = 'navbar-dark bg-dark';
+    } else {
+      this.navStyle = 'navbar-light bg-light';
+    }
+  }
 }
