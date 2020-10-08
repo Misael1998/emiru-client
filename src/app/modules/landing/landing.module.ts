@@ -6,6 +6,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LandingNavComponent } from './components/landing-nav/landing-nav.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { PlansComponent } from './components/plans/plans.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { RegisterComponent } from './views/register/register.component';
     LandingNavComponent,
     LoginComponent,
     RegisterComponent,
+    PlansComponent,
   ],
   imports: [CommonModule, LandingRoutingModule],
   exports: [LandingComponent],
