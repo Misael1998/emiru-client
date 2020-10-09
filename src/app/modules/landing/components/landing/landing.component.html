@@ -1,35 +1,87 @@
 <app-landing-nav></app-landing-nav>
 
-<div class="container-fluid">
-  <div class="row" name="mockup">
-    <section class="container mt-4">
-      <div class="row">ooo</div>
-      <div class="navbar row bg-light" name="mockup-nav">
-        <a>Edit</a>
-        <a>Home</a>
-        <a>Icons</a>
-      </div>
-      <div class="row bg-primary" style="height: 500px">
-        <section class="col-7 align-self-center">
-          <h1 class="display-1">Crea tu propia tienda online.</h1>
-          <div class="row mt-4">
-            <div class="col-3">
-              <button class="btn btn-light btn-lg">Comenzar</button>
+<div
+  class="container-fluid"
+  style="
+    background-image: url('./assets/first.jpg');
+    background-size: cover;
+    height: 750px;
+  "
+>
+  <div class="row" name="mockup" style="height: 100%">
+    <section class="container">
+      <div class="mt-5">
+        <div class="row">ooo</div>
+        <div class="navbar row bg-light" name="mockup-nav">
+          <a>Edit</a>
+          <a>Home</a>
+          <a>Icons</a>
+        </div>
+        <div
+          class="row"
+          style="
+            height: 500px;
+            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+          "
+        >
+          <section class="col-7 align-self-center">
+            <h1 class="display-1">Crea tu propia tienda online.</h1>
+            <div class="row mt-4">
+              <div class="col-3">
+                <button class="btn btn-light btn-lg">Comenzar</button>
+              </div>
+              <p class="col-9">
+                Con Emiru podras crear tu tienda, y tener una plaforma para
+                venderle productos a tus clientes.
+              </p>
             </div>
-            <p class="col-9">
-              Con Emiru podras crear tu tienda, y tener una plaforma para
-              venderle productos a tus clientes.
-            </p>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </section>
   </div>
-  <hr />
-  <div class="container pt-2" name="plan">
-    <section class="row">
-      <h2 class="display-3">Nuestros planes</h2>
-    </section>
-    <app-plans class="row"></app-plans>
+</div>
+<hr />
+
+<div class="container-fluid" name="plan">
+  <div class="row bg-success pt-3 pb-3">
+    <div class="container">
+      <section class="row">
+        <h2 class="display-3">Nuestros planes</h2>
+      </section>
+      <app-plans class="row"></app-plans>
+    </div>
+  </div>
+</div>
+
+<hr />
+<div class="container-fluid" name="information">
+  <div class="row bg-warning pt-3 pb-3">
+    <div class="container">
+      <section class="row">
+        <section class="col-6">
+          <h3 class="display-3">¿Porqué usar Emiru?</h3>
+        </section>
+        <section class="col-6"></section>
+        <section class="col-6"></section>
+        <section class="col-6">
+          <ul>
+            <li class="mb-3">
+              <h4 class="class-4">
+                Emiru te permite crear tu tienda sin necesidad de tener
+                conocientos tectnicos. Puede personalizar la apariencia a tu
+                gusto.
+              </h4>
+            </li>
+            <li class="mb-2">
+              <h4 class="class-4">
+                Te ayudamos a llegar a tus clientes y ampliar tu negocio. Unos
+                cuantos clicks y podras tener tu tienda funcionando online.
+              </h4>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </div>
   </div>
 </div>

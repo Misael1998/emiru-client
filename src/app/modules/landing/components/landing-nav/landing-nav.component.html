@@ -2,6 +2,7 @@
   class="navbar {{ navStyle }} sticky-top"
   id="navbar"
   (scroll)="onScroll($event)"
+  style="background-color: {{ navColor }}"
 >
   <span class="navbar-brand mb-0 h1">
     <a [routerLink]="['./']" class="text-decoration-none">Emiru</a>

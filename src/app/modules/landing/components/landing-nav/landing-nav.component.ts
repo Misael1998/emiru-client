@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class LandingNavComponent implements OnInit {
   navStyle: string = 'navbar-light';
+  navColor: string = '#38475C';
 
   constructor(router: Router) {}
 
@@ -19,8 +20,10 @@ export class LandingNavComponent implements OnInit {
 
     if (window.pageYOffset > element.clientHeight) {
       this.navStyle = 'navbar-dark bg-dark';
+      this.navColor = '';
     } else {
-      this.navStyle = 'navbar-light bg-light';
+      this.navStyle = 'navbar-light ';
+      this.navColor = '#38475C';
     }
   }
 }
