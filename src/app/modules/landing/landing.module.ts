@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LandingRoutingModule } from './landing-routing.module';
-import { LandingComponent } from './components/landing/landing.component';
+import { LandingComponent } from './views/landing/landing.component';
 import { LandingNavComponent } from './components/landing-nav/landing-nav.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { PlansComponent } from './components/plans/plans.component';
+import { LandinngMockupComponent } from './components/landinng-mockup/landinng-mockup.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { PlansComponent } from './components/plans/plans.component';
     LoginComponent,
     RegisterComponent,
     PlansComponent,
+    LandinngMockupComponent,
   ],
   imports: [CommonModule, LandingRoutingModule],
   exports: [LandingComponent],

@@ -1,5 +1,5 @@
 <nav
-  class="navbar {{ navStyle }} sticky-top"
+  class="navbar sticky-top"
   id="navbar"
   (scroll)="onScroll($event)"
   style="background-color: {{ navColor }}"
@@ -13,7 +13,9 @@
     <a>Recursos</a>
   </div>
   <div>
-    <a [routerLink]="['./login']" class="btn btn-light">Iniciar sesión</a>
-    <a [routerLink]="['./register']" class="btn btn-primary">Comenzar</a>
+    <a [routerLink]="['./login']" class="btn btn-link text-light"
+      >Iniciar sesión</a
+    >
+    <a [routerLink]="['./register']" class="btn btn-light">Comenzar</a>
   </div>
 </nav>

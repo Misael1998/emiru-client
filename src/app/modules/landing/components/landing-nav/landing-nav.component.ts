@@ -19,10 +19,9 @@ export class LandingNavComponent implements OnInit {
     let element = document.getElementById('navbar');
 
     if (window.pageYOffset > element.clientHeight) {
-      this.navStyle = 'navbar-dark bg-dark';
-      this.navColor = '';
+      // this.navColor = '#7ac7c4';
+      this.navColor = '#38475C';
     } else {
-      this.navStyle = 'navbar-light ';
       this.navColor = '#38475C';
     }
   }
