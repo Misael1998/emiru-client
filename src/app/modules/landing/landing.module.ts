@@ -8,6 +8,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { PlansComponent } from './components/plans/plans.component';
 import { LandinngMockupComponent } from './components/landinng-mockup/landinng-mockup.component';
+import { OnlineComponent } from './components/online/online.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LandinngMockupComponent } from './components/landinng-mockup/landinng-m
     RegisterComponent,
     PlansComponent,
     LandinngMockupComponent,
+    OnlineComponent,
   ],
   imports: [CommonModule, LandingRoutingModule],
   exports: [LandingComponent],
