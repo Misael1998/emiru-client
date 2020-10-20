@@ -1,1 +1,40 @@
-<p>login works!</p>
+<section class="container">
+  <section class="row">
+    <div class="col-6">
+      <h3>Login</h3>
+      <form
+        class=""
+        #loginForm="ngForm"
+        (ngSubmit)="onSubmit(loginForm, $event)"
+      >
+        <input
+          class="form-control"
+          type="email"
+          name="email"
+          id="email"
+          autocomplete="on"
+        />
+        <label for="email">Email</label>
+        <input
+          class="form-control"
+          type="password"
+          name="password"
+          id="password"
+          autocomplete="on"
+        />
+        <label for="password">Password</label>
+        <br />
+        <button class="btn btn-light no-border-radius" type="submit">
+          Entrar
+        </button>
+      </form>
+      <div>
+        <span class="text-muted"
+          ><a [routerLink]="['/register']"
+            >¿No tienes cuenta? Registrate.</a
+          ></span
+        >
+      </div>
+    </div>
+  </section>
+</section>
