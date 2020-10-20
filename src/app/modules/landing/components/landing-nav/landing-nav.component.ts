@@ -20,7 +20,7 @@ export class LandingNavComponent implements OnInit {
 
     if (window.pageYOffset > element.clientHeight) {
       // this.navColor = '#7ac7c4';
-      this.navColor = '#38475C';
+      this.navColor = '#000000';
     } else {
       this.navColor = '#38475C';
     }
