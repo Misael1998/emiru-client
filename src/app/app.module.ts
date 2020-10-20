@@ -4,11 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingModule } from './modules/landing/landing.module';
-import { FooterComponent } from './shared/components/footer/footer.component';
+import { SharedModule } from './shared/shared.module'
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent],
-  imports: [BrowserModule, AppRoutingModule, LandingModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, LandingModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })

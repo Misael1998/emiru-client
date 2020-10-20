@@ -10,6 +10,8 @@ import { PlansComponent } from './components/plans/plans.component';
 import { LandinngMockupComponent } from './components/landinng-mockup/landinng-mockup.component';
 import { OnlineComponent } from './components/online/online.component';
 
+import { SharedModule } from '../../shared/shared.module';
+
 @NgModule({
   declarations: [
     LandingComponent,
@@ -20,7 +22,7 @@ import { OnlineComponent } from './components/online/online.component';
     LandinngMockupComponent,
     OnlineComponent,
   ],
-  imports: [CommonModule, LandingRoutingModule],
+  imports: [CommonModule, LandingRoutingModule, SharedModule],
   exports: [LandingComponent],
 })
 export class LandingModule {}
