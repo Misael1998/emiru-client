@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
     email: '',
     password: '',
   };
+  invalidSubmit: boolean = false;
+  invalidSubmitMessage: string = '';
 
   constructor(private auth: AuthService) {}
 
@@ -24,25 +26,30 @@ export class LoginComponent implements OnInit {
     console.log('login');
 
     if (!this.user.password || !this.user.email) {
-      alert('missing fields');
+      this.invalidSubmit = true;
+      this.invalidSubmitMessage = 'El correo y contraseña son requeridos';
       return;
     }
 
     if (this.form.status == 'INVALID') {
-      alert('invalid form');
+      this.invalidSubmit = true;
+      this.invalidSubmitMessage = 'El correo o contraseña son invalidos';
       return;
     }
 
-    console.log(this.user);
-    console.log(this.form);
-
-    //    this.auth.login(this.user).subscribe(
-    //      (response) => {
-    //        console.log(response);
-    //      },
-    //      (error) => {
-    //        console.log(error);
-    //      }
-    //    );
+    this.auth.login(this.user).subscribe(
+      (response) => {
+        this.user.token = response.token;
+        this.user.email = response.user.email;
+        this.user.name = response.user.name;
+        this.user.roles = response.user.roles;
+        console.log(this.user);
+      },
+      (error) => {
+        if (error.error.message == 'Invalid credentials') {
+          alert('El correo o contraseña son incorrectos');
+        }
+      }
+    );
   }
 }
