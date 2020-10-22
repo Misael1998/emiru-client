@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConfig } from '../../config/AppConfig';
 import { Observable } from 'rxjs';
 
+import {User} from '../../models/User'
+
 const BASE_URL = AppConfig.BASE_URL;
 const HTTP_OPTIONS = {
   headers: new HttpHeaders({ ContentType: 'application/json' }),
@@ -14,7 +16,7 @@ const HTTP_OPTIONS = {
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  login(user: any): Observable<any> {
+  login(user: User): Observable<any> {
     return this.http.post(`${BASE_URL}login`, user, HTTP_OPTIONS);
   }
 

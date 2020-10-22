@@ -13,6 +13,11 @@ import { OnlineComponent } from './components/online/online.component';
 
 import { SharedModule } from '../../shared/shared.module';
 import { CoreModule } from '../../core/core.module';
+import { SelectUserTypeComponent } from './components/select-user-type/select-user-type.component';
+import { SelectPlanTypeComponent } from './components/select-plan-type/select-plan-type.component';
+import { ClientFormComponent } from './components/client-form/client-form.component';
+import { EnterpriseFormComponent } from './components/enterprise-form/enterprise-form.component';
+import { AddPaymentComponent } from './components/add-payment/add-payment.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +28,11 @@ import { CoreModule } from '../../core/core.module';
     PlansComponent,
     LandinngMockupComponent,
     OnlineComponent,
+    SelectUserTypeComponent,
+    SelectPlanTypeComponent,
+    ClientFormComponent,
+    EnterpriseFormComponent,
+    AddPaymentComponent,
   ],
   imports: [
     CommonModule,

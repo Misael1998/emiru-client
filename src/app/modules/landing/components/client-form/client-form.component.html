@@ -1,0 +1,80 @@
+<section class="container">
+  <section class="row">
+    <section class="col-6">
+      <h2>Register client</h2>
+
+      <form
+        class=""
+        #registerClientForm="ngForm"
+        (ngSubmit)="onSubmit(registerClientForm, $event)"
+      >
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            #name="ngModel"
+            [(ngModel)]="clientUser.name"
+            class="form-control"
+            required
+            [ngClass]="{
+              'is-invalid': name.errors && name.touched,
+              'is-valid': !name.errors && name.touched
+            }"
+          />
+          <div [hidden]="!name.errors?.required" class="invalid-feedback">
+            Name is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            #email="ngModel"
+            [(ngModel)]="clientUser.email"
+            class="form-control"
+            pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+            [ngClass]="{
+              'is-invalid': email.errors && email.touched,
+              'is-valid': !email.errors && email.touched
+            }"
+            required
+            autocomplete="on"
+          />
+          <div [hidden]="!email.errors?.required" class="invalid-feedback">
+            Email is required
+          </div>
+          <div [hidden]="!email.errors?.pattern" class="invalid-feedback">
+            invalid email
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            #password="ngModel"
+            [(ngModel)]="clientUser.password"
+            class="form-control"
+            required
+            [ngClass]="{
+              'is-invalid': password.errors && password.touched,
+              'is-valid': password.errors && password.touched
+            }"
+            autocomplete="on"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-light no-border-radius">
+          Registrarse
+        </button>
+      </form>
+    </section>
+  </section>
+</section>
