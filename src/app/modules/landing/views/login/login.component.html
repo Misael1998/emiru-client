@@ -65,6 +65,10 @@
         </button>
       </form>
 
+      <div *ngIf="failedLogin" class="alert alert-danger">
+        {{ failedLoginMessage }}
+      </div>
+
       <div>
         <span class="text-muted"
           ><a [routerLink]="['/register']"

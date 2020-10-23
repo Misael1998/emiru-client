@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../../../core/authentication/auth.service';
 import { User } from '../../../../models/User';
 
@@ -16,16 +17,19 @@ export class LoginComponent implements OnInit {
   };
   invalidSubmit: boolean = false;
   invalidSubmitMessage: string = '';
+  failedLogin: boolean = false;
+  failedLoginMessage: string = '';
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   onSubmit(form: any, e: any) {
     e.preventDefault();
-    console.log('login');
+    const { email, password } = form.value;
+    console.log(form.value);
 
-    if (!this.user.password || !this.user.email) {
+    if (!password || !email) {
       this.invalidSubmit = true;
       this.invalidSubmitMessage = 'El correo y contraseña son requeridos';
       return;
@@ -44,10 +48,13 @@ export class LoginComponent implements OnInit {
         this.user.name = response.user.name;
         this.user.roles = response.user.roles;
         console.log(this.user);
+        localStorage.setItem('user', JSON.stringify(this.user));
+        this.router.navigate(['home']);
       },
       (error) => {
         if (error.error.message == 'Invalid credentials') {
-          alert('El correo o contraseña son incorrectos');
+          this.failedLogin = true;
+          this.failedLoginMessage = 'El correo o contraseña son incorrectos';
         }
       }
     );
