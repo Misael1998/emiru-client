@@ -2,6 +2,9 @@
   <section class="row">
     <section class="col-6">
       <h2>Register client</h2>
+      <div class="alert alert-danger" role="alert" [hidden]="!invalidSubmit">
+        {{ invalidSubmitMessage }}
+      </div>
 
       <form
         class=""
@@ -75,6 +78,10 @@
           Registrarse
         </button>
       </form>
+
+      <div *ngIf="failedRegister" class="alert alert-danger">
+        {{ failedRegisterMessage }}
+      </div>
     </section>
   </section>
 </section>
