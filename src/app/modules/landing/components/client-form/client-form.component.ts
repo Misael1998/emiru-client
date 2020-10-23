@@ -49,6 +49,8 @@ export class ClientFormComponent implements OnInit {
         this.clientUser.name = response.user.name;
         this.clientUser.roles = response.user.roles;
 
+        console.log(this.clientUser);
+
         localStorage.setItem('user', JSON.stringify(this.clientUser));
         this.router.navigate(['home']);
       },

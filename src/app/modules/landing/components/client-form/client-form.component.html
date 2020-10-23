@@ -6,6 +6,10 @@
         {{ invalidSubmitMessage }}
       </div>
 
+      <div *ngIf="failedRegister" class="alert alert-danger">
+        {{ failedRegisterMessage }}
+      </div>
+
       <form
         class=""
         #registerClientForm="ngForm"
@@ -21,6 +25,7 @@
             [(ngModel)]="clientUser.name"
             class="form-control"
             required
+            minlength="2"
             [ngClass]="{
               'is-invalid': name.errors && name.touched,
               'is-valid': !name.errors && name.touched
@@ -28,6 +33,9 @@
           />
           <div [hidden]="!name.errors?.required" class="invalid-feedback">
             Name is required
+          </div>
+          <div [hidden]="!name.errors?.minlength" class="invalid-feedback">
+            Min 2 characters
           </div>
         </div>
 
@@ -71,17 +79,17 @@
               'is-valid': password.errors && password.touched
             }"
             autocomplete="on"
+            minlength="8"
           />
+          <div [hidden]="!password.errors?.minlength" class="invalid-feedback">
+            Min 8 characters
+          </div>
         </div>
 
         <button type="submit" class="btn btn-light no-border-radius">
           Registrarse
         </button>
       </form>
-
-      <div *ngIf="failedRegister" class="alert alert-danger">
-        {{ failedRegisterMessage }}
-      </div>
     </section>
   </section>
 </section>
