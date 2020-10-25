@@ -20,7 +20,6 @@
           <input
             type="text"
             name="name"
-            id="name"
             #name="ngModel"
             [(ngModel)]="clientUser.name"
             class="form-control"
@@ -44,7 +43,6 @@
           <input
             type="email"
             name="email"
-            id="email"
             #email="ngModel"
             [(ngModel)]="clientUser.email"
             class="form-control"
@@ -69,7 +67,6 @@
           <input
             type="password"
             name="password"
-            id="password"
             #password="ngModel"
             [(ngModel)]="clientUser.password"
             class="form-control"
@@ -84,6 +81,30 @@
           <div [hidden]="!password.errors?.minlength" class="invalid-feedback">
             Min 8 characters
           </div>
+        </div>
+
+        <div [hidden]="!invalidCheckbox" class="text-danger">
+          Tiene que seleccionar una o mas opciones.
+        </div>
+
+        <div class="form-group">
+          <input
+            type="checkbox"
+            name="client"
+            #client="ngModel"
+            [(ngModel)]="clientRole"
+          />
+          Quiero comprar
+        </div>
+
+        <div class="form-group">
+          <input
+            type="checkbox"
+            name="enterprise"
+            #enterprise="ngModel"
+            [(ngModel)]="enterpriseRole"
+          />
+          Quiero vender
         </div>
 
         <button type="submit" class="btn btn-light no-border-radius">

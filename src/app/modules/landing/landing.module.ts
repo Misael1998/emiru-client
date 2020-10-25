@@ -16,7 +16,6 @@ import { CoreModule } from '../../core/core.module';
 import { SelectUserTypeComponent } from './components/select-user-type/select-user-type.component';
 import { SelectPlanTypeComponent } from './components/select-plan-type/select-plan-type.component';
 import { ClientFormComponent } from './components/client-form/client-form.component';
-import { EnterpriseFormComponent } from './components/enterprise-form/enterprise-form.component';
 import { AddPaymentComponent } from './components/add-payment/add-payment.component';
 
 @NgModule({
@@ -31,7 +30,6 @@ import { AddPaymentComponent } from './components/add-payment/add-payment.compon
     SelectUserTypeComponent,
     SelectPlanTypeComponent,
     ClientFormComponent,
-    EnterpriseFormComponent,
     AddPaymentComponent,
   ],
   imports: [
