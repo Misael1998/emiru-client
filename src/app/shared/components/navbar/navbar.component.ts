@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/authentication/auth.service';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +12,9 @@ export class NavbarComponent implements OnInit {
   navStyle: string = 'navbar-light';
   navColor: string = '#38475C';
 
-  constructor(private router: Router) {}
+  currentUser: User;
+
+  constructor(private router: Router, private auth: AuthService) {}
 
   ngOnInit(): void {}
 
@@ -24,5 +28,12 @@ export class NavbarComponent implements OnInit {
     } else {
       this.navColor = '#38475C';
     }
+  }
+
+  isLoggedIn(): void {
+    this.auth
+      .isLoggedIn()
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   }
 }
