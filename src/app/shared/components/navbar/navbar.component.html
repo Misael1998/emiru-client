@@ -1,0 +1,49 @@
+<nav
+  class="navbar sticky-top navbar-expand-md bg-faded justify-content-center"
+  style="background-color: {{ navColor }}"
+  id="navbar"
+  (scroll)="onScroll($event)"
+>
+  <a [routerLink]="['./']" class="navbar-brand d-flex w-50 mr-auto">Emiru</a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapsingNavbar3"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+    <ul class="navbar-nav w-100 justify-content-center">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Planes</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">Plantillas</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">Recursos</a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a [routerLink]="['./login']" class="btn btn-link text-light"
+          >Iniciar sesión</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          [routerLink]="['./register']"
+          class="btn btn-light no-border-radius pl-4 pr-4"
+          >Comenzar</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
