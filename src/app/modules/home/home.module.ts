@@ -6,10 +6,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { StoresComponent } from './pages/stores/stores.component';
 
 import { SharedModule } from '../../shared/shared.module';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
-  declarations: [HomeComponent, StoresComponent],
+  declarations: [HomeComponent, StoresComponent, LayoutComponent],
   imports: [CommonModule, HomeRoutingModule, SharedModule],
-  exports: [HomeComponent],
+  exports: [LayoutComponent],
 })
 export class HomeModule {}

@@ -3,12 +3,19 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
 import { IsLoggedGuard } from './guards/is-logged.guard';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: LayoutComponent,
     canActivate: [IsLoggedGuard],
+    children: [
+      {
+        path: '',
+        component: HomeComponent,
+      },
+    ],
   },
 ];
 

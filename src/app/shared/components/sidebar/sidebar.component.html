@@ -1,1 +1,17 @@
-<p>sidebar works!</p>
+<h1>sidebar</h1>
+<aside>
+  <ul>
+    <div *ngFor="let link of Links">
+      <div *ngIf="link.sectionName">
+        {{ link.sectionName }}
+      </div>
+
+      <a *ngFor="let linkItem of link.links" [routerLink]="linkItem.url">
+        <li>
+          icon
+          {{ linkItem.name }}
+        </li>
+      </a>
+    </div>
+  </ul>
+</aside>
