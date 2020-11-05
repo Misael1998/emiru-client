@@ -12,11 +12,23 @@ export class NavbarComponent implements OnInit {
   navStyle: string = 'navbar-light';
   navColor: string = '#38475C';
 
+  isUserLogged: boolean = false;
+
   currentUser: User;
 
   constructor(private router: Router, private auth: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.auth
+      .isLoggedIn()
+      .then(() => {
+        this.isUserLogged = true;
+        this.currentUser = JSON.parse(localStorage.getItem('user'));
+      })
+      .catch(() => {
+        this.isUserLogged = false;
+      });
+  }
 
   @HostListener('window:scroll', ['$event'])
   onScroll(e) {
@@ -30,10 +42,8 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  isLoggedIn(): void {
-    this.auth
-      .isLoggedIn()
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+  onLogOut(): void {
+    localStorage.clear();
+    this.router.navigate(['']);
   }
 }
