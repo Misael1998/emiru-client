@@ -20,7 +20,7 @@ export class SelectPlanTypeComponent implements OnInit {
   }
 
   selectPlan(id: string) {
-    console.log(id);
     this.selectedPlan = id;
+    console.log(id);
   }
 }

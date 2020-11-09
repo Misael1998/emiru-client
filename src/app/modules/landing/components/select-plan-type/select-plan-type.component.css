@@ -1,0 +1,8 @@
+.card:hover {
+  cursor: pointer;
+  background-color: #9ac2c9;
+}
+
+.set-selected {
+  background-color: #9ac2c9;
+}

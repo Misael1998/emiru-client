@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  step: number = 0;
+  step: number = 1;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.step = 0;
+    this.step = 1;
   }
 }
