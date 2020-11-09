@@ -1,1 +1,22 @@
-<p>select-plan-type works!</p>
+<div class="container">
+  <div>
+    <div
+      *ngFor="let plan of plans"
+      class="mt-2"
+      style="border: 1px solid black"
+    >
+      <h4>
+        {{ plan.name }}
+      </h4>
+      <p>
+        {{ plan.stores }}
+      </p>
+      <p>
+        {{ plan.sotre }}
+      </p>
+      <p>
+        {{ plan.pages }}
+      </p>
+    </div>
+  </div>
+</div>

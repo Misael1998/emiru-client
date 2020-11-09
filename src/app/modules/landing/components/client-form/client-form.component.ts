@@ -1,7 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
+import { RegisterService } from 'src/app/core/register/register.service';
 import { User } from 'src/app/models/User';
-import { AuthService } from '../../../../core/authentication/auth.service';
 
 @Component({
   selector: 'app-client-form',
@@ -25,7 +32,7 @@ export class ClientFormComponent implements OnInit {
   failedRegisterMessage: string = '';
   invalidCheckbox = false;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private register: RegisterService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -63,17 +70,23 @@ export class ClientFormComponent implements OnInit {
       this.clientUser.roles.push('enterprise');
     }
 
-    this.auth.register(this.clientUser).subscribe(
+    this.register.register(this.clientUser).subscribe(
       (response) => {
         this.clientUser.token = response.token;
         this.clientUser.email = response.user.email;
         this.clientUser.name = response.user.name;
         this.clientUser.roles = response.user.roles;
 
+        this.register.setUserToken(response.token);
+
         console.log(this.clientUser);
 
-        localStorage.setItem('user', JSON.stringify(this.clientUser));
-        this.router.navigate(['home']);
+        if (response.user.roles.includes('enterprise')) {
+          this.router.navigate(['register/plans']);
+        } else {
+          localStorage.setItem('user', JSON.stringify(this.clientUser));
+          this.router.navigate(['home']);
+        }
       },
       (error) => {
         console.log(error);
