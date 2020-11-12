@@ -11,6 +11,6 @@ export class RegisterComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.step = 1;
+    this.step = 2;
   }
 }
