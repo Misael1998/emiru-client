@@ -1,7 +1,6 @@
 import {
   Component,
   EventEmitter,
-  Input,
   OnInit,
   Output,
   ViewChild,
@@ -16,6 +15,7 @@ import { User } from 'src/app/models/User';
   styleUrls: ['./client-form.component.css'],
 })
 export class ClientFormComponent implements OnInit {
+  @Output() registeredUser: EventEmitter<User> = new EventEmitter();
   @ViewChild('registerClientForm') registerClientForm: any;
 
   clientUser: User = {
@@ -77,16 +77,7 @@ export class ClientFormComponent implements OnInit {
         this.clientUser.name = response.user.name;
         this.clientUser.roles = response.user.roles;
 
-        this.register.setUserToken(response.token);
-
-        console.log(this.clientUser);
-
-        if (response.user.roles.includes('enterprise')) {
-          this.router.navigate(['register/plans']);
-        } else {
-          localStorage.setItem('user', JSON.stringify(this.clientUser));
-          this.router.navigate(['home']);
-        }
+        this.registeredUser.emit(this.clientUser);
       },
       (error) => {
         console.log(error);

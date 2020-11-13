@@ -3,9 +3,18 @@
     {{ step }}
   </div>
 
-  <app-client-form *ngIf="step == 0"></app-client-form>
-  <app-select-plan-type *ngIf="step == 1"></app-select-plan-type>
-  <app-add-payment *ngIf="step == 2"></app-add-payment>
+  <app-client-form
+    *ngIf="step == 0"
+    (registeredUser)="onUserRegister($event)"
+  ></app-client-form>
+  <app-select-plan-type
+    *ngIf="step == 1"
+    (submitPlan)="onPlanSubmit($event)"
+  ></app-select-plan-type>
+  <app-add-payment
+    *ngIf="step == 2"
+    (submitCard)="onCardSubmit($event)"
+  ></app-add-payment>
 
   <button *ngIf="step > 0" class="btn btn-light btn-lg">Next</button>
 </div>

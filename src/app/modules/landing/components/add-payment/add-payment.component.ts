@@ -40,7 +40,6 @@ export class AddPaymentComponent implements OnInit {
       return;
     }
 
-    console.log(form);
     this.submitCard.emit({
       name: cardName,
       number: cardNumber,

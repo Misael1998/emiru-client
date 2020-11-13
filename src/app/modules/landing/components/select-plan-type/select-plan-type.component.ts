@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data/data.service';
 
 @Component({
@@ -7,8 +7,9 @@ import { DataService } from 'src/app/shared/services/data/data.service';
   styleUrls: ['./select-plan-type.component.css'],
 })
 export class SelectPlanTypeComponent implements OnInit {
+  @Output() submitPlan: EventEmitter<string> = new EventEmitter();
   plans: any[];
-  selectedPlan: string;
+  selectedPlan: string = null;
 
   constructor(private data: DataService) {}
 
@@ -21,6 +22,14 @@ export class SelectPlanTypeComponent implements OnInit {
 
   selectPlan(id: string) {
     this.selectedPlan = id;
-    console.log(id);
+  }
+
+  onSubmit() {
+    if (!this.selectedPlan) {
+      alert('No plan selected');
+    } else {
+      let plan = this.plans.filter((plan) => plan._id == this.selectedPlan)[0];
+      this.submitPlan.emit(plan);
+    }
   }
 }
