@@ -1,88 +1,80 @@
-<div class="container-fluid py-3">
-  <div class="row">
-    <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
-      <h4 class="">Add payment</h4>
-      <form #paymentForm="ngForm" (ngSubmit)="onsubmit(paymentForm, $event)">
-        <div class="form-group">
-          <label for="cardName">Name in card</label>
-          <input
-            type="text"
-            name="cardName"
-            class="form-control"
-            placeholder="John Doe"
-            #cardName="ngModel"
-            [(ngModel)]="card.name"
-            required
-          />
-        </div>
+<h4 class="">Add payment</h4>
+<form #paymentForm="ngForm" (ngSubmit)="onsubmit(paymentForm, $event)">
+  <div class="form-group">
+    <label for="cardName">Name in card</label>
+    <input
+      type="text"
+      name="cardName"
+      class="form-control"
+      placeholder="John Doe"
+      #cardName="ngModel"
+      [(ngModel)]="card.name"
+      required
+    />
+  </div>
 
-        <div class="form-group">
-          <label for="cardNumer">Card number</label>
-          <input
-            type="number"
-            name="cardNumber"
-            class="form-control"
-            placeholder="0000 0000 0000 0000"
-            pattern="\d{16}"
-            #cardNumber="ngModel"
-            [(ngModel)]="card.number"
-            [ngClass]="{
-              'is-invalid': cardNumber.errors && cardNumber.touched,
-              'is-valid': !cardNumber.errors && cardNumber.touched
-            }"
-            required
-          />
-        </div>
+  <div class="form-group">
+    <label for="cardNumer">Card number</label>
+    <input
+      type="number"
+      name="cardNumber"
+      class="form-control"
+      placeholder="0000 0000 0000 0000"
+      pattern="\d{16}"
+      #cardNumber="ngModel"
+      [(ngModel)]="card.number"
+      [ngClass]="{
+        'is-invalid': cardNumber.errors && cardNumber.touched,
+        'is-valid': !cardNumber.errors && cardNumber.touched
+      }"
+      required
+    />
+  </div>
 
-        <div class="form-row align-items-center">
-          <div class="col-auto">
-            <div class="form-group">
-              <label for="cardExpiration">Card expiration</label>
-              <input
-                type="text"
-                name="cardExpiration"
-                class="form-control"
-                placeholder="MM/YY"
-                pattern="\d{4}"
-                maxlength="4"
-                #cardExpiration="ngModel"
-                [(ngModel)]="card.expiration"
-                [ngClass]="{
-                  'is-invalid': cardExpiration.errors && cardExpiration.touched,
-                  'is-valid': !cardExpiration.errors && cardExpiration.touched
-                }"
-                required
-              />
-            </div>
-          </div>
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+      <div class="form-group">
+        <label for="cardExpiration">Card expiration</label>
+        <input
+          type="text"
+          name="cardExpiration"
+          class="form-control"
+          placeholder="MM/YY"
+          pattern="\d{4}"
+          maxlength="4"
+          #cardExpiration="ngModel"
+          [(ngModel)]="card.expiration"
+          [ngClass]="{
+            'is-invalid': cardExpiration.errors && cardExpiration.touched,
+            'is-valid': !cardExpiration.errors && cardExpiration.touched
+          }"
+          required
+        />
+      </div>
+    </div>
 
-          <div class="col-auto">
-            <div class="form-group">
-              <label for="cardCvv">Card cvv</label>
-              <input
-                type="tel"
-                name="cardCvv"
-                class="form-control"
-                placeholder="CVV"
-                maxlength="3"
-                minlength="3"
-                pattern="\d{3}"
-                #cardCvv="ngModel"
-                [(ngModel)]="card.cvv"
-                [ngClass]="{
-                  'is-invalid': cardCvv.errors && cardCvv.touched,
-                  'is-valid': !cardCvv.errors && cardCvv.touched
-                }"
-                required
-              />
-            </div>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-light no-border-radius">
-          Submit
-        </button>
-      </form>
+    <div class="col-auto">
+      <div class="form-group">
+        <label for="cardCvv">Card cvv</label>
+        <input
+          type="tel"
+          name="cardCvv"
+          class="form-control"
+          placeholder="CVV"
+          maxlength="3"
+          minlength="3"
+          pattern="\d{3}"
+          #cardCvv="ngModel"
+          [(ngModel)]="card.cvv"
+          [ngClass]="{
+            'is-invalid': cardCvv.errors && cardCvv.touched,
+            'is-valid': !cardCvv.errors && cardCvv.touched
+          }"
+          required
+        />
+      </div>
     </div>
   </div>
-</div>
+
+  <button type="submit" class="btn btn-light no-border-radius">Submit</button>
+</form>

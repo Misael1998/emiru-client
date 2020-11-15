@@ -11,7 +11,7 @@ export class RegisterComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.step = 0;
+    this.step = 1;
   }
 
   onCardSubmit(e: any) {
