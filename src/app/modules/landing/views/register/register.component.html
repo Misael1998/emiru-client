@@ -8,6 +8,7 @@
       <app-add-payment
         *ngIf="step == 2"
         (submitCard)="onCardSubmit($event)"
+        [isEnterprise]="isEnterprise"
       ></app-add-payment>
     </div>
   </div>

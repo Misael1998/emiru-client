@@ -77,4 +77,11 @@
   </div>
 
   <button type="submit" class="btn btn-light no-border-radius">Submit</button>
+  <button
+    *ngIf="!isEnterprise"
+    type="button"
+    class="btn btn-dark no-border-radius"
+  >
+    Saltar
+  </button>
 </form>

@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  Input,
   OnInit,
   Output,
   ViewChild,
@@ -15,6 +16,8 @@ import { PaymentCard } from 'src/app/models/PaymentCard';
 export class AddPaymentComponent implements OnInit {
   @ViewChild('paymentFrom') paymentForm: any;
   @Output() submitCard: EventEmitter<PaymentCard> = new EventEmitter();
+  @Output() skipCard: EventEmitter<Boolean> = new EventEmitter();
+  @Input() isEnterprise: boolean;
   card: PaymentCard = {
     name: '',
     number: '',
@@ -46,6 +49,15 @@ export class AddPaymentComponent implements OnInit {
       expiration: cardExpiration,
       cvv: cardCvv,
     });
+  }
+
+  onSkipCard() {
+    if (this.isEnterprise) {
+      alert("Enterprise user can't skip paymet method");
+      return;
+    }
+
+    this.skipCard.emit(true);
   }
 
   private dateIsValid(exp: string): boolean {
