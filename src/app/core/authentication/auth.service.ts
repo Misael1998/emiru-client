@@ -42,4 +42,40 @@ export class AuthService {
         return false;
       });
   }
+
+  userIsEnterprise(): any {
+    let user: User = JSON.parse(localStorage.getItem('user'));
+    if (user == null) {
+      return Promise.reject(false);
+    }
+    if (!user.token) {
+      return Promise.reject(false);
+    }
+
+    return this.http
+      .get(`${BASE_URL}token/${user.token}/enterprise`)
+      .toPromise()
+      .then(() => true)
+      .catch(() => {
+        return false;
+      });
+  }
+
+  userIsAdmin(): any {
+    let user: User = JSON.parse(localStorage.getItem('user'));
+    if (user == null) {
+      return Promise.reject(false);
+    }
+    if (!user.token) {
+      return Promise.reject(false);
+    }
+
+    return this.http
+      .get(`${BASE_URL}token/${user.token}/admin`)
+      .toPromise()
+      .then(() => true)
+      .catch(() => {
+        return false;
+      });
+  }
 }
